@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body, html {
+	width: 100%;
+    height: 100vh; /* Altura mínima de 100% da viewport */
+    margin: 0;
+	background-image: url('img/polistampofundo.png');
+    background-size: cover; /* Garante que a imagem cubra toda a tela */
+    background-position: center; /* Centraliza a imagem de fundo */
+    display: flex;
+	overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+    animation: fadeIn 1s forwards;
+}
+img{
+  margin-top: -130px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container {
+  font-family: "Josefin Sans", sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+
+	
+}
+
+.screen {		
+	background: linear-gradient(90deg, #ef7026, #ffffff);		
+	position: relative;	
+	height: 500px;
+	width: 360px;	
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;}
+
+.screen__content {
+	z-index: 1;
+	position: relative;	
+	height: 100%;
+
+	box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(190, 190, 190),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.screen__background {		
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	-webkit-clip-path: inset(0 0 0 0);
+	clip-path: inset(0 0 0 0);	
+
+}
+
+.screen__background__shape {
+	transform: rotate(45deg);
+	position: absolute;
+
+}
+
+.screen__background__shape1 {
+	height: 520px;
+	width: 520px;
+	background: #FFF;	
+	top: -50px;
+	right: 120px;	
+	border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+	height: 220px;
+	width: 220px;
+	background: #ef7026;	
+	top: -172px;
+	right: 0;	
+}
+
+.screen__background__shape3 {
+	height: 540px;
+	width: 190px;
+	background: linear-gradient(270deg, #ef7026, #ffffff);
+	top: -24px;
+	right: 0;	
+}
+
+.screen__background__shape4 {
+	height: 400px;
+	width: 200px;
+	background: #ef7026;	
+	top: 420px;
+	right: 50px;	
+
+}
+
+.login {
+	width: 320px;
+	padding: 30px;
+	padding-top: 156px;
+}
+
+.login__field {
+	padding: 20px 0px;	
+	position: relative;	
+}
+
+.login__icon {
+	position: absolute;
+	top: 30px;
+	color: #ef7026;
+}
+
+.login__input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: 700;
+	width: 75%;
+	transition: .2s;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+	outline: none;
+	border-bottom-color: #ef7026;
+}
+
+.login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #ef7026;
+	box-shadow: 0px 2px 2px #323131;
+	cursor: pointer;
+	transition: 1.0s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+	background-color: #ef7026;
+	color: #FFF;
+	transition: 1.0s;
+	outline: none;
+
+}
+
+
+
+
+.social-icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.social-login__icon:hover {
+	transform: scale(1.5);	
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.error-message.show {
+    opacity: 1;
+}

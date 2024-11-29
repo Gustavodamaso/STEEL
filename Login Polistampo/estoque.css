@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it is above other content */
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-top: 2px solid #ef7026;
+  border-right: 2px solid transparent;
+  animation: spinner8217 0.8s linear infinite;
+}
+
+@keyframes spinner8217 {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+#content {
+  transition: filter 0.3s ease; /* Smooth transition for blur removal */
+}
+
+body.loading #content {
+  filter: blur(10px); /* Apply blur when loading */
+}
+
+body.loaded #content {
+  filter: none; /* Remove blur when fully loaded */
+}
+
+body, html {
+  position: static;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.voltar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 0.5rem 1rem;
+  background-color: #ef7026;
+  color: white;
+  border: solid 0.9px #ffff;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; 
+  transition: 1.0s;
+}
+
+@media (max-width: 768px) {
+    .voltar {
+      display: none; /* Exibe o card em dispositivos móveis */
+    }
+  }
+
+.voltar i {
+  color: #ffffff; 
+  transition: 1.0s;
+}
+
+.logout-link {
+  text-decoration: none;  /* Remove o sublinhado do link */
+  color: inherit;  /* Mantém a cor do texto atual */
+}
+
+
+.voltar:hover {
+  background-color: #ffffff; 
+  transition: 1.0s;
+  border: solid #ef7026 1px;
+}
+
+.voltar:hover i {
+  color: #ef7026; 
+  transition: 1.0s;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 7px;
+  left: 39%;
+  width: 20%;
+  height: 4%;
+  padding: 0.5rem 1rem;
+  background-color: #ef7026;
+  color: white;
+  border: solid 0.9px #ffff;
+  border-radius: 20px;
+  font-size: 1.25rem;
+  transition: 1.0s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.navbar {
+  position: absolute;
+  top: 950px;
+  width: 20%;
+  height: 4%;
+  padding: 0.5rem 1rem;
+  background-color: #ef7026;
+  color: white;
+  border: solid 0.9px #ffff;
+  border-radius: 20px;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1.0s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+header h1 {
+    transition: 1.0s;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-align: center; 
+    margin: 3 auto; 
+    display: block;
+    width: 100%; 
+    margin-top: 13px;
+}
+
+.link-no-style {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
+.logout {
+  border-radius: 50%;
+  width: 40px; /* Ajusta a largura de acordo com a largura da tela */
+  max-width: 40px; /* Limita o tamanho máximo */
+  height: 40px; /* Ajusta a altura de acordo com a largura da tela */
+  max-height: 40px; /* Limita o tamanho máximo */
+  background-color: #ef7026;
+  position: absolute;
+  top: auto; /* Posiciona o elemento a 10px do topo */
+  right: -450px; /* Posiciona o elemento a 10px da direita */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0; /* Inicialmente invisível */
+  pointer-events: none; /* Desabilita cliques quando oculto */
+  transition: opacity 0.8s ease; /* Efeito de dissolução */
+}
+
+
+/* Ajustando o ícone dentro do perfil */
+.logout i {
+  font-size: 1.5rem; /* Tamanho do ícone padrão */
+  color: #ffffff;
+  position: relative;
+  z-index: 20;
+}
+
+.perfil {
+  border-radius: 50%;
+  width: 40px; /* Ajusta a largura de acordo com a largura da tela */
+  max-width: 40px; /* Limita o tamanho máximo */
+  height: 40px; /* Ajusta a altura de acordo com a largura da tela */
+  max-height: 40px; /* Limita o tamanho máximo */
+  background-color: #ef7026;
+  position: absolute;
+  top: auto; /* Posiciona o elemento a 10px do topo */
+  right: -500px; /* Posiciona o elemento a 10px da direita */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: 1.0s;
+}
+
+
+/* Ajustando o ícone dentro do perfil */
+.perfil i {
+  font-size: 1.5rem; /* Tamanho do ícone padrão */
+  color: #ffffff;
+  position: relative;
+  z-index: 20;
+}
+
+.perfil:hover {
+  background-color: #ffffff; /* Cor de fundo alterada ao passar o mouse */
+  border: 1px solid #ef7026;
+  transition: 1.0s;
+}
+
+/* Mudança de cor ao passar o mouse em cima do ícone */
+.perfil:hover i {
+  color: #ef7026; /* Cor do ícone alterada ao passar o mouse */
+}
+
+.logout.show {
+  opacity: 1; /* Totalmente visível */
+  pointer-events: auto; /* Habilita cliques */
+}
+
+@media (max-width: 768px) {
+  .perfil {
+    width: 12vw; /* Aumenta o tamanho em telas menores */
+    height: 12vw;
+  }
+  
+  .perfil i {
+    font-size: 1.2rem; /* Reduz o tamanho do ícone para telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil {
+    width: 15vw; /* Tamanho ainda maior para dispositivos muito pequenos */
+    height: 15vw;
+  }
+
+  .perfil i {
+    font-size: 1rem; /* Diminui mais o ícone em dispositivos pequenos */
+  }
+}
+
+
+
+@media (max-width: 1440px) {
+    .voltar {
+        font-size: 1.1rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .voltar {
+        font-size: 1rem;
+    }
+    header h1 {
+        font-size: 1.6rem;
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .voltar {
+        font-size: 0.9rem;
+    }
+    header h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .voltar {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+    }
+    header h1 {
+        font-size: 1.2rem;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Garante que o contêiner ocupe toda a altura da tela */
+    margin: 0;
+  }
+  
+
+  .container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 25px; 
+    flex-wrap: wrap; 
+    height: 500px; 
+  }
+  
+  .card {
+    box-sizing: border-box;
+    width: 190px;
+    height: 254px;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; /* Distribui o conteúdo uniformemente */
+    transition: all 0.5s;
+    font-size: 23px;
+    font-weight: 200;
+    color: #ef7026;
+  }
+  
+  .card:hover {
+    border: 1px solid #ef7026;
+    transform: scale(1.05);
+  }
+  
+  .card:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+  
+  .consulta-btn {
+    font-family: "Poppins", sans-serif;
+    margin-top: 25px;
+    padding: 8px 16px;
+    background-color: #ef7026;
+    color: white;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .consulta-btn:hover {
+    background-color: #ffffff;
+    color: #ef7026;
+    border: solid 1px #ef7026;
+  }
+  
+  .consulta-btn:active {
+    background-color: #e2e2e2;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-container {
+    display: flex;
+    background-color: #ef7026;
+    width: 250px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+  }
+  
+  .button {
+    outline: 0 !important;
+    border: 0 !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    color: #c0571b;
+    transform: translateY(-3px);
+  }
+
+  .button-active {
+    outline: 0 !important;
+    border: 0 !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+    transform: translateY(-3px);
+  }
+  
+  .icon {
+    font-size: 25px;
+  }
+
+  .icon-active {
+    transition: 1.0s;
+    font-size: 25px;
+    color: #c0571b;
+  }
+
+
+  .chapas-card {
+
+    display: none;
+    width: 800px;
+    height: 500px;
+    background: rgb(236, 236, 236);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    padding: 20px;
+    position: fixed;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001; /* Fica acima do blur */
+    transition: opacity 1.0s ease; /* Efeito de dissolução */
+}
+
+.chapas-card2 {
+  display: none;
+  width: 800px;
+  height: 500px;
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding: 20px;
+  position: fixed;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; /* Fica acima do blur */
+  transition: opacity 1.0s ease; /* Efeito de dissolução */
+}
+
+.chapas-card3 {
+  display: none;
+  width: 800px;
+  height: 500px;
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding: 20px;
+  position: fixed;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; /* Fica acima do blur */
+  transition: opacity 1.0s ease; /* Efeito de dissolução */
+}
+
+.chapas-card4 {
+  display: none;
+  width: 800px;
+  height: 500px;
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding: 20px;
+  position: fixed;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; /* Fica acima do blur */
+  transition: opacity 1.0s ease; /* Efeito de dissolução */
+}
+
+/* Classe para mostrar o card-estoque */
+.chapas-card.show {
+  transition: 1.0s;
+    display: block;
+}
+
+.chapas-card2.show {
+  transition: 1.0s;
+    display: block;
+}
+
+.chapas-card3.show {
+  transition: 1.0s;
+    display: block;
+}
+
+.chapas-card4.show {
+  transition: 1.0s;
+    display: block;
+}
+
+body.blur-background .container, 
+body.blur-background header, 
+body.blur-background .navbar {
+    filter: blur(8px);
+    pointer-events: none; /* Impede a interação com o conteúdo desfocado */
+    transition: 0.3s;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+.message {
+  display: none; /* Inicialmente escondido */
+  font-size: 24px;
+  color: #000000;
+  margin-top: 50px;
+}
+.refresh-button, .voltar-button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #ef7026;
+  border-radius: 10px;
+  border: solid 1px #ef7026;
+  position: absolute;
+  top:15px;
+  right: 10px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.8s;
+}
+.refresh-button:hover, .voltar-button:hover {
+  background-color: #ef7026;
+  color: #ffffff;
+  transition: 0.8s;
+}
+.voltar-button {
+  right: 100px; /* Coloca o botão "Desfazer" à esquerda do "Atualizar" */
+}
+
+.overlay {
+  transition: 1.0s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000; /* Abaixo do card, acima do blur */
+} 
+
+.buscar {
+  font-size: 18px;
+  color: #ef7026;
+  font-family: inherit;
+  font-weight: 400;
+  cursor: pointer;
+  position: absolute; /* Altera a posição para absoluta */
+  bottom: 20px; /* Distância da parte inferior */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Ajusta a posição ao centro exato */
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+
+
+.buscar:focus,
+.buscar:hover {
+  color: #031844;
+}
+
+.buscar:focus:after,
+.buscar:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.buscar:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #363636;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+  
+  
